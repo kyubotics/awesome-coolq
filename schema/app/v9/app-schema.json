@@ -1,242 +1,242 @@
 {
-	"type": "object",
-	"title": "酷Q应用信息",
-	"properties": {
-		"ret": {
-			"type": "integer",
-			"title": "返回码，固定为1",
-			"example": [
-				1
-			],
-			"minimum": 1,
-			"maxmum": 1
-		},
-		"apiver": {
-			"type": "integer",
-			"title": "Api版本，本SDK为9",
-			"example": [
-				9
-			],
-			"enum": [
-				9
-			]
-		},
-		"name": {
-			"type": "string",
-			"title": "应用名称"
-		},
-		"version_id": {
-			"type": "integer",
-			"title": "应用顺序版本",
-			"description": "每次发布时至少加一"
-		},
-		"version": {
-			"type": "string",
-			"title": "应用显示版本",
-			"description": "用于在应用列表显示版本号",
-			"example": [
-				"1.0.0"
-			]
-		},
-		"author": {
-			"type": "string",
-			"title": "应用作者"
-		},
-		"description": {
-			"type": "string",
-			"title": "应用描述",
-			"description": "换行用 CRLF(\\r\\n)"
-		},
-		"event": {
-			"type": "array",
-			"title": "事件列表",
-			"description": "同一事件类型可重复定义，发布前请删除无用事件。",
-			"items": {
-				"type": "object",
-				"title": "一个事件定义",
-				"properties": {
-					"id": {
-						"type": "integer",
-						"title": "事件 ID",
-						"description": "请确保事件 ID 唯一"
-					},
-					"type": {
-						"type": "integer",
-						"title": "事件类型",
-						"description": "",
-						"enum": [
-							21,
-							2,
-							4,
-							11,
-							101,
-							102,
-							103,
-							104,
-							201,
-							301,
-							302,
-							1001,
-							1002,
-							1003,
-							1004
-						]
-					},
-					"name": {
-						"type": "string",
-						"title": "事件名称"
-					},
-					"function": {
-						"type": "string",
-						"title": "事件对应函数",
-						"description": "DLL 中的导出函数名"
-					},
-					"priority": {
-						"type": "integer",
-						"title": "事件优先级",
-						"description": "参见 https://cqp.im/deveventpriority",
-						"enum": [
-							10000,
-							20000,
-							30000,
-							40000
-						],
-						"examples": [
-							10000,
-							20000,
-							30000,
-							40000
-						]
-					}
-				},
-				"required": [
-					"id",
-					"type",
-					"name",
-					"function",
-					"priority"
-				]
-			}
-		},
-		"menu": {
-			"type": "array",
-			"title": "设置菜单",
-			"description": "发布前请删除无用菜单，如果无需设置菜单请全部删除。",
-			"items": {
-				"type": "object",
-				"title": "一个菜单定义",
-				"properties": {
-					"name": {
-						"type": "string",
-						"title": "一个菜单名称"
-					},
-					"function": {
-						"type": "string",
-						"title": "菜单对应的函数"
-					}
-				},
-				"required": [
-					"name",
-					"function"
-				]
-			}
-		},
-		"status": {
-			"type": "array",
-			"title": "悬浮窗状态",
-			"description": "将应用运行状态等显示在酷Q悬浮窗",
-			"items": {
-				"type": "object",
-				"title": "一个悬浮窗状态定义",
-				"properties": {
-					"id": {
-						"type": "integer",
-						"title": "悬浮窗 ID",
-						"description": "请确保悬浮窗 ID 唯一"
-					},
-					"name": {
-						"type": "string",
-						"title": "名称"
-					},
-					"title": {
-						"type": "string",
-						"title": "英文名称"
-					},
-					"function": {
-						"type": "string",
-						"title": "数据更新对应函数",
-						"description": "DLL 中的导出函数名"
-					},
-					"period": {
-						"type": "string",
-						"title": "更新间隔",
-						"description": "单位ms（毫秒），目前仅支持1000ms（1秒）",
-						"enum": [
-							"1000"
-						],
-						"examples": [
-							"1000"
-						]
-					}
-				},
-				"required": [
-					"id",
-					"name",
-					"title",
-					"function",
-					"period"
-				]
-			}
-		},
-		"auth": {
-			"type": "array",
-			"title": "应用权限",
-			"description": "发布前请删除无用权限",
-			"uniqueItems": true,
-			"items": {
-				"type": "integer",
-				"title": "申请的权限",
-				"enum": [
-					20,
-					30,
-					101,
-					103,
-					106,
-					110,
-					120,
-					121,
-					122,
-					123,
-					124,
-					125,
-					126,
-					127,
-					128,
-					130,
-					131,
-					132,
-					140,
-					150,
-					151,
-					160,
-					161,
-					162,
-					180
-				]
-			}
-		}
-	},
-	"required": [
-		"ret",
-		"apiver",
-		"name",
-		"version_id",
-		"version",
-		"author",
-		"description",
-		"event",
-		"menu",
-		"status",
-		"auth"
-	]
+    "type": "object",
+    "title": "酷Q应用信息",
+    "properties": {
+        "ret": {
+            "type": "integer",
+            "title": "返回码，固定为1",
+            "example": [
+                1
+            ],
+            "minimum": 1,
+            "maxmum": 1
+        },
+        "apiver": {
+            "type": "integer",
+            "title": "Api版本，本SDK为9",
+            "example": [
+                9
+            ],
+            "enum": [
+                9
+            ]
+        },
+        "name": {
+            "type": "string",
+            "title": "应用名称"
+        },
+        "version_id": {
+            "type": "integer",
+            "title": "应用顺序版本",
+            "description": "每次发布时至少加一"
+        },
+        "version": {
+            "type": "string",
+            "title": "应用显示版本",
+            "description": "用于在应用列表显示版本号",
+            "example": [
+                "1.0.0"
+            ]
+        },
+        "author": {
+            "type": "string",
+            "title": "应用作者"
+        },
+        "description": {
+            "type": "string",
+            "title": "应用描述",
+            "description": "换行用 CRLF(\\r\\n)"
+        },
+        "event": {
+            "type": "array",
+            "title": "事件列表",
+            "description": "同一事件类型可重复定义，发布前请删除无用事件。",
+            "items": {
+                "type": "object",
+                "title": "一个事件定义",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "title": "事件 ID",
+                        "description": "请确保事件 ID 唯一"
+                    },
+                    "type": {
+                        "type": "integer",
+                        "title": "事件类型",
+                        "description": "",
+                        "enum": [
+                            21,
+                            2,
+                            4,
+                            11,
+                            101,
+                            102,
+                            103,
+                            104,
+                            201,
+                            301,
+                            302,
+                            1001,
+                            1002,
+                            1003,
+                            1004
+                        ]
+                    },
+                    "name": {
+                        "type": "string",
+                        "title": "事件名称"
+                    },
+                    "function": {
+                        "type": "string",
+                        "title": "事件对应函数",
+                        "description": "DLL 中的导出函数名"
+                    },
+                    "priority": {
+                        "type": "integer",
+                        "title": "事件优先级",
+                        "description": "参见 https://cqp.im/deveventpriority",
+                        "enum": [
+                            10000,
+                            20000,
+                            30000,
+                            40000
+                        ],
+                        "examples": [
+                            10000,
+                            20000,
+                            30000,
+                            40000
+                        ]
+                    }
+                },
+                "required": [
+                    "id",
+                    "type",
+                    "name",
+                    "function",
+                    "priority"
+                ]
+            }
+        },
+        "menu": {
+            "type": "array",
+            "title": "设置菜单",
+            "description": "发布前请删除无用菜单，如果无需设置菜单请全部删除。",
+            "items": {
+                "type": "object",
+                "title": "一个菜单定义",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "一个菜单名称"
+                    },
+                    "function": {
+                        "type": "string",
+                        "title": "菜单对应的函数"
+                    }
+                },
+                "required": [
+                    "name",
+                    "function"
+                ]
+            }
+        },
+        "status": {
+            "type": "array",
+            "title": "悬浮窗状态",
+            "description": "将应用运行状态等显示在酷Q悬浮窗",
+            "items": {
+                "type": "object",
+                "title": "一个悬浮窗状态定义",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "title": "悬浮窗 ID",
+                        "description": "请确保悬浮窗 ID 唯一"
+                    },
+                    "name": {
+                        "type": "string",
+                        "title": "名称"
+                    },
+                    "title": {
+                        "type": "string",
+                        "title": "英文名称"
+                    },
+                    "function": {
+                        "type": "string",
+                        "title": "数据更新对应函数",
+                        "description": "DLL 中的导出函数名"
+                    },
+                    "period": {
+                        "type": "string",
+                        "title": "更新间隔",
+                        "description": "单位ms（毫秒），目前仅支持1000ms（1秒）",
+                        "enum": [
+                            "1000"
+                        ],
+                        "examples": [
+                            "1000"
+                        ]
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "title",
+                    "function",
+                    "period"
+                ]
+            }
+        },
+        "auth": {
+            "type": "array",
+            "title": "应用权限",
+            "description": "发布前请删除无用权限",
+            "uniqueItems": true,
+            "items": {
+                "type": "integer",
+                "title": "申请的权限",
+                "enum": [
+                    20,
+                    30,
+                    101,
+                    103,
+                    106,
+                    110,
+                    120,
+                    121,
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    130,
+                    131,
+                    132,
+                    140,
+                    150,
+                    151,
+                    160,
+                    161,
+                    162,
+                    180
+                ]
+            }
+        }
+    },
+    "required": [
+        "ret",
+        "apiver",
+        "name",
+        "version_id",
+        "version",
+        "author",
+        "description",
+        "event",
+        "menu",
+        "status",
+        "auth"
+    ]
 }
