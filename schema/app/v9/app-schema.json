@@ -1,4 +1,5 @@
 {
+    "$schema": "https://json-schema.org/draft-07/schema",
     "type": "object",
     "title": "酷Q应用信息",
     "properties": {
@@ -115,6 +116,248 @@
                     "name",
                     "function",
                     "priority"
+                ],
+                "allOf": [
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": 21
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "type": {
+                                    "description": "私聊消息处理"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": 2
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "type": {
+                                    "description": "群消息处理"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": 4
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "type": {
+                                    "description": "讨论组消息处理"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": 11
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "type": {
+                                    "description": "群文件上传事件处理"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": 101
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "type": {
+                                    "description": "群管理变动事件处理"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": 102
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "type": {
+                                    "description": "群成员减少事件处理"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": 103
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "type": {
+                                    "description": "群成员增加事件处理"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": 104
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "type": {
+                                    "description": "群禁言事件处理"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": 201
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "type": {
+                                    "description": "好友已添加事件处理"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": 301
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "type": {
+                                    "description": "好友添加请求处理"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": 302
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "type": {
+                                    "description": "群添加请求处理"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": 1001
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "type": {
+                                    "description": "酷Q启动事件"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": 1002
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "type": {
+                                    "description": "酷Q关闭事件"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": 1003
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "type": {
+                                    "description": "应用已被启用"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": 1004
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "type": {
+                                    "description": "应用将被停用"
+                                }
+                            }
+                        }
+                    }
                 ]
             }
         },
@@ -222,6 +465,208 @@
                     161,
                     162,
                     180
+                ],
+                "allOf": [
+                    {
+                        "if": {
+                            "const": 20
+                        },
+                        "then": {
+                            "description": "[敏感] 取Cookies\ngetCookies getCsrfToken"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 30
+                        },
+                        "then": {
+                            "description": "接收语音\ngetRecord"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 101
+                        },
+                        "then": {
+                            "description": "发送群消息\nsendGroupMsg"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 103
+                        },
+                        "then": {
+                            "description": "发送讨论组消息\nsendDiscussMsg"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 106
+                        },
+                        "then": {
+                            "description": "发送私聊消息\nsendPrivateMsg"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 110
+                        },
+                        "then": {
+                            "description": "[敏感]发送赞\nsendLike"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 120
+                        },
+                        "then": {
+                            "description": "置群员移除\nsetGroupKick"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 121
+                        },
+                        "then": {
+                            "description": "置群员禁言\nsetGroupBan"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 122
+                        },
+                        "then": {
+                            "description": "置群管理员\nsetGroupAdmin"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 123
+                        },
+                        "then": {
+                            "description": "置全群禁言\nsetGroupWholeBan"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 124
+                        },
+                        "then": {
+                            "description": "置匿名群员禁言\nsetGroupAnonymousBan"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 125
+                        },
+                        "then": {
+                            "description": "置群匿名设置\nsetGroupAnonymous"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 126
+                        },
+                        "then": {
+                            "description": "置群成员名片\nsetGroupCard"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 127
+                        },
+                        "then": {
+                            "description": "[敏感] 置群退出\nsetGroupLeave"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 128
+                        },
+                        "then": {
+                            "description": "置群成员专属头衔\nsetGroupSpecialTitle"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 130
+                        },
+                        "then": {
+                            "description": "取群成员信息\ngetGroupMemberInfo"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 131
+                        },
+                        "then": {
+                            "description": "取陌生人信息\ngetStrangerInfo"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 132
+                        },
+                        "then": {
+                            "description": "取群信息\ngetGroupInfo"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 140
+                        },
+                        "then": {
+                            "description": "置讨论组退出\nsetDiscussLeave"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 150
+                        },
+                        "then": {
+                            "description": "置好友添加请求\nsetFriendAddRequest"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 151
+                        },
+                        "then": {
+                            "description": "置群添加请求\nsetGroupAddRequest"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 160
+                        },
+                        "then": {
+                            "description": "取群成员列表\ngetGroupMemberList"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 161
+                        },
+                        "then": {
+                            "description": "取群列表\ngetGroupList"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 162
+                        },
+                        "then": {
+                            "description": "取好友列表\ngetFriendList"
+                        }
+                    },
+                    {
+                        "if": {
+                            "const": 180
+                        },
+                        "then": {
+                            "description": "撤回消息\ndeleteMsg"
+                        }
+                    }
                 ]
             }
         }
